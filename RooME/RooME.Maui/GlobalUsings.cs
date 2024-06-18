@@ -1,0 +1,10 @@
+﻿global using RooME.Maui.Models;
+global using RooME.Maui.Services;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using RooME.Maui.ViewModels;
+global using RooME.Maui.Views;
+global using RooME.Loc;
+global using System.Collections.ObjectModel;
+global using System.Diagnostics;
+global using System.Threading.Tasks;
