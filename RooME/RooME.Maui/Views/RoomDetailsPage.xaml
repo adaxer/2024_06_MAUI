@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<v:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:RooME.Maui.ViewModels"
+             xmlns:v="clr-namespace:RooME.Maui.Views"
+			 x:Class="RooME.Maui.Views.RoomDetailsPage"
+			 x:DataType="vm:RoomDetailsViewModel">
+	<ScrollView>
+		<VerticalStackLayout Margin="12">
+			<Label Text="{Binding Room.Title}" FontSize="Header" />
+			<Label Text="{Binding Room.Description}" FontSize="Default" />
+		</VerticalStackLayout>
+	</ScrollView>
+</v:BasePage>

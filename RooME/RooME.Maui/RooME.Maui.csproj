@@ -70,6 +70,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\RoomDetailsPage.xaml.cs">
+	    <DependentUpon>RoomDetailsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\RoomListPage.xaml.cs">
+	    <DependentUpon>RoomListPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\ChatPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

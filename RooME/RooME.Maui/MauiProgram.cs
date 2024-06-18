@@ -1,4 +1,6 @@
-﻿namespace RooME.Maui;
+﻿using RooME.Maui.Interfaces;
+
+namespace RooME.Maui;
 
 public static class MauiProgram
 {
@@ -15,13 +17,17 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<MainViewModel>();
 		builder.Services.AddSingleton<MainPage>();
-		builder.Services.AddTransient<ListDetailDetailViewModel>();
-		builder.Services.AddTransient<ListDetailDetailPage>();
 		builder.Services.AddSingleton<ChatViewModel>();
 		builder.Services.AddSingleton<ChatPage>();
+		builder.Services.AddSingleton<RoomListViewModel>();
+		builder.Services.AddSingleton<RoomListPage>();
+
+        builder.Services.AddTransient<RoomDetailsViewModel>();
+		builder.Services.AddTransient<RoomDetailsPage>();
 
 		builder.Services.AddTransient<SampleDataService>();
 		builder.Services.AddSingleton<ILocalizationService>(Span=>new ResXLocalizationService { CurrentCulture = new System.Globalization.CultureInfo("fr") });
+		builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
 
 		return builder.Build();
 	}

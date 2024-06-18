@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<v:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:RooME.Maui.ViewModels"
+             xmlns:v="clr-namespace:RooME.Maui.Views"
              xmlns:loc="clr-namespace:RooME.Loc;assembly=RooME.Loc"
 			 x:Class="RooME.Maui.Views.MainPage"
 			 x:DataType="vm:MainViewModel" Title="{Binding Title}">
@@ -10,4 +11,4 @@
         <Label Text="{x:Static loc:Strings.UI_AppTitle}" />
         <!-- So wärs mit eigener Markup-Extension <Label Text="{l:localize UI_AppTitle}" />-->
     </VerticalStackLayout>
-</ContentPage>
+</v:BasePage>

@@ -19,8 +19,8 @@
 		Route="ChatPage" />
     <ShellContent
 		Shell.NavBarIsVisible="true"
-		Title="ListDetail"
+		Title="RoomList"
 		Icon="iconlistdetail.png"
-		ContentTemplate="{DataTemplate views:ListDetailPage}"
-		Route="ListDetailPage" />
+		ContentTemplate="{DataTemplate views:RoomListPage}"
+		Route="RoomListPage" />
 </Shell>

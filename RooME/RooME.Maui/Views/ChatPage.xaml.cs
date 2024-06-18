@@ -1,10 +1,9 @@
 namespace RooME.Maui.Views;
 
-public partial class ChatPage : ContentPage
+public partial class ChatPage : BasePage
 {
-	public ChatPage(ChatViewModel viewModel)
+	public ChatPage(ChatViewModel viewModel) : base(viewModel)
 	{
 		InitializeComponent();
-		BindingContext = viewModel;
 	}
 }
