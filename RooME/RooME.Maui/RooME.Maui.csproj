@@ -67,6 +67,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\RooME.Loc\RooME.Loc.csproj" />
+	  <ProjectReference Include="..\RooME.Models\RooME.Models.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

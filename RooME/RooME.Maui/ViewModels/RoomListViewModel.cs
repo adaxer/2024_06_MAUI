@@ -10,7 +10,7 @@ public partial class RoomListViewModel : BaseViewModel
 	bool isRefreshing;
 
 	[ObservableProperty]
-	ObservableCollection<SampleItem>? items;
+	ObservableCollection<Room>? rooms;
 
 	public RoomListViewModel(SampleDataService service, INavigationService navigationService)
 	{
@@ -36,26 +36,26 @@ public partial class RoomListViewModel : BaseViewModel
 	[RelayCommand]
 	public async Task LoadMoreAsync()
 	{
-		if (Items is null)
+		if (Rooms is null)
 		{
 			return;
 		}
 
-		var moreItems = await _dataService.GetItems();
+		var moreItems = await _dataService.GetRoomsAsync();
 
 		foreach (var item in moreItems)
 		{
-			Items.Add(item);
+			Rooms.Add(item);
 		}
 	}
 
 	public async Task LoadDataAsync()
 	{
-		Items = new ObservableCollection<SampleItem>(await _dataService.GetItems());
+		Rooms = new ObservableCollection<Room>(await _dataService.GetRoomsAsync());
 	}
 
 	[RelayCommand]
-	private async Task GoToDetailsAsync(SampleItem item)
+	private async Task GoToDetailsAsync(Room item)
 	{
 		// Zielkonzept
 		await _navigationService.NavigateAsync<RoomDetailsViewModel>(("Room", item));

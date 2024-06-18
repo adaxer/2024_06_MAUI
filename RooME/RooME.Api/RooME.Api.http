@@ -1,0 +1,41 @@
+@url = https://localhost:7195
+@user=admin
+@password=P@ssw0rd
+@email=info@andreas-daxer.de
+
+POST {{url}}/register
+Content-Type: application/json
+
+{
+  "password": "{{password}}",
+  "email": "{{email}}"
+}
+
+###
+
+POST {{url}}/login?useCookies=false
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+###
+
+@token=CfDJ8CxZh82kdIJDu39u0b3hk_rVvUcCdlGcrg4WKGy_s9dlnDN57XGtNDf0CJqibd5lFc9Q0sua8RG8yY7UGlaFBwPHGGBhFd2Ucda8uCaERNMo_55sbxqjPtBVtPPNlmTZqWe38JJD-TlLRU2TMfVLO8M08HwQLjYhBEhNu5A5CWUY-og2BuPDnEl7JiwHRajhyxlxzI2iS9agf1k75z-xWpSXYL_zRDVqZPOAypk-5aubcuc2Kxao2oZiAXdtJtSUfvQn8KvqYLx3wCTEVvBW8tyRHgkkJHoIaKRtTKhgIpJcTnO9aihoJMOtzdeeydrs-rGWbUrSv9mZkk8Yk94UyXlFMbQp0qD9qIYRNMdvYGuTuAquulR-An5hoIGKBKR8p-ZWTq5Kf_SoBY-i6vRLqKkbMnDfzzpU3wFpcUSUKYDxbrT95HeSGd9jYUJxaz7LqrApctGXIKNLOO8xxEEN4BqYftYPC2cU4M_41NZngMz9wHwSbbasNInp1PpdxZBEWib_EXsYy-5Gv-yd1IybFH2iosODcj0hlQKkczsX_OXZbjIA-SUw9IE5i6WhGVNXWDolflTOFgQJyDDmJ8p1ULDyWPCOjHLgSOCOLxXi5UKU38HF_iAYtEnzuHAYm0cidmP3xbb9fDDoV7D6VCPRti3ePeVBnThl_Jvs8KfTxIisG3qbiV3H6F9GbdNgP8xaaUvKdp2XsufT1I9Y0l9JSTc
+
+GET {{url}}/hello
+Authorization: Bearer {{token}}
+
+
+###
+
+@refreshToken=CfDJ8CxZh82kdIJDu39u0b3hk_o_HACRLV8nY4CZokZZtokrMhMih_EYAUw6m5Y3uVKSsfCOLlkatEM7SyNZClcBtbX6PxR7LpD_dlE3QuSESLITZQlCIyVHBuhnuYgsEpWj9fOs_bA3wpzm2wXCGVqzX2jVbs18eJyXMqDb8cRFuIgq70u5qkqf-Wm8GAaLUoyvGhE3tP6czlsCazgI3JgULJnxZp9nfW1-8FnI0xdxUhlxvnOCLTGPJFI1NDAovTFy6qRgdXN_gYrSVHrEY4rf0fjoeVnfwLtyM6bH_b8J64jHafq1cEXb7T04FSjwZb3hkJYyMUc-dG5ArWGqVJibiOV51TanvkoHxDIFVrbn_twI5ZY5Y57e2RUX1eEON-yIhjpWjifimQyuJvSkrberUoFgcX_PqEZy__Sgk71LDq4I_FdQYfhKdrjXTniD9RfZoa1qFeV6XlzuUc-R8taV_E3KoCDEmoPxCgXnLWBmQlxasYK0kS6miwXyoJYzwgAU5ZDafLWQWOks4AF7ErIQVmIDYxXMHWkm9QF8hcfKVWTvSH5tAlzGz1aHboOwIUGsI4zmVd8XMMxsLDvD67osdPFgCthXQ5QxubHIBJqHs18rpQ96ElbZD0bDTyth3KNxBEFfP9dfuqYHl1Tp8618GIF_CIQ06WAYlNH11n1vo8ROkI9bfpjBa1vfvipJZeo7FNLva6Lujcz6npOMdFTu-Jw
+
+POST {{url}}/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}

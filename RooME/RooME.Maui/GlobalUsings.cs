@@ -1,4 +1,4 @@
-﻿global using RooME.Maui.Models;
+﻿global using RooME.Models;
 global using RooME.Maui.Services;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;

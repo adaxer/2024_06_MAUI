@@ -3,18 +3,18 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:RooME.Maui.ViewModels"
              xmlns:v="clr-namespace:RooME.Maui.Views"
-			 xmlns:m="clr-namespace:RooME.Maui.Models"
+			 xmlns:m="clr-namespace:RooME.Models;assembly=RooME.Models"
 			 x:Class="RooME.Maui.Views.RoomListPage"
 			 x:DataType="vm:RoomListViewModel">
 	<RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
-		<CollectionView ItemsSource="{Binding Items}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+		<CollectionView ItemsSource="{Binding Rooms}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
 			<CollectionView.ItemTemplate>
-				<DataTemplate x:DataType="m:SampleItem">
+				<DataTemplate x:DataType="m:Room">
 					<Frame Margin="4" Padding="12">
 						<Frame.GestureRecognizers>
 							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RoomListViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
 						</Frame.GestureRecognizers>
-						<Label Text="{Binding Title}" FontSize="Large" TextColor="{StaticResource Primary}" />
+						<Label Text="{Binding Name}" FontSize="Large" TextColor="{StaticResource Primary}" />
 					</Frame>
 				</DataTemplate>
 			</CollectionView.ItemTemplate>

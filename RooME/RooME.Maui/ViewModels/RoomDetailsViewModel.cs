@@ -1,14 +1,13 @@
-﻿
-namespace RooME.Maui.ViewModels;
+﻿namespace RooME.Maui.ViewModels;
 
 public partial class RoomDetailsViewModel : BaseViewModel
 {
 	[ObservableProperty]
-	SampleItem? room;
+	Room? room;
 
     public override void OnNavigatedTo(IDictionary<string, object> data)
     {
-        if (data.TryGetValue(nameof(Room), out var item) && item is SampleItem sampleItem)
+        if (data.TryGetValue(nameof(Room), out var item) && item is Room sampleItem)
         {
             Room = sampleItem;
         }

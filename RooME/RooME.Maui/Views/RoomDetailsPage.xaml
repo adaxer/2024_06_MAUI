@@ -7,7 +7,7 @@
 			 x:DataType="vm:RoomDetailsViewModel">
 	<ScrollView>
 		<VerticalStackLayout Margin="12">
-			<Label Text="{Binding Room.Title}" FontSize="Header" />
+			<Label Text="{Binding Room.Name}" FontSize="Header" />
 			<Label Text="{Binding Room.Description}" FontSize="Default" />
 		</VerticalStackLayout>
 	</ScrollView>
