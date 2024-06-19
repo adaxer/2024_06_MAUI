@@ -35,19 +35,8 @@ public class Program
 
         app.UseAuthorization();
 
-        app.MapGet("/hello", (HttpContext httpContext) =>
-        {
-            return "Hello world";
-        })
-        .RequireAuthorization()
-        .WithName("Hello")
-        .WithOpenApi();
-
-        app.MapGet("/init", ([FromServices] AppDbContext db) =>
-        {
-            db.Database.EnsureCreated();
-        });
-
+        app.MapEndpoints();
+ 
         app.MapIdentityApi<User>();
 
         app.Run();

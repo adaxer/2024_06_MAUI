@@ -25,7 +25,7 @@ public static class MauiProgram
         builder.Services.AddTransient<RoomDetailsViewModel>();
 		builder.Services.AddTransient<RoomDetailsPage>();
 
-		builder.Services.AddTransient<SampleDataService>();
+		builder.Services.AddTransient<IRoomService, ApiRoomService>();
 		builder.Services.AddSingleton<ILocalizationService>(Span=>new ResXLocalizationService { CurrentCulture = new System.Globalization.CultureInfo("fr") });
 		builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
 
