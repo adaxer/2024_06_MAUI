@@ -1,4 +1,4 @@
-﻿namespace RooME.Models;
+﻿namespace RooME.Contracts;
 
 public interface IRoomService
 {

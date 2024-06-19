@@ -1,7 +1,7 @@
 ﻿using NSubstitute;
 using RooME.Maui.Interfaces;
 using RooME.Maui.ViewModels;
-using RooME.Models;
+using RooME.Contracts;
 
 namespace RooME.Maui.Tests.ViewModels;
 

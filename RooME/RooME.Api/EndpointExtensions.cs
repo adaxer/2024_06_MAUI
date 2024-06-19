@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RooME.Models;
+using RooME.Contracts;
 
 namespace RooME.Api;
 

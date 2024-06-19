@@ -12,4 +12,10 @@ public partial class RoomDetailsViewModel : BaseViewModel
             Room = sampleItem;
         }
     }
+
+    [RelayCommand]
+    private void BookRoom()
+    {
+
+    }
 }

@@ -25,6 +25,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\RooME.Loc\RooME.Loc.csproj" />
+		<ProjectReference Include="..\RooME.Contracts\RooME.Contracts.csproj" />
 		<ProjectReference Include="..\RooME.Maui\RooME.Maui.csproj" />
 	</ItemGroup>
 

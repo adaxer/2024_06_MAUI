@@ -61,11 +61,29 @@ namespace RooME.Loc {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anmelden.
+        /// </summary>
+        public static string Global_Login {
+            get {
+                return ResourceManager.GetString("Global_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RooME Anwendung.
         /// </summary>
         public static string UI_AppTitle {
             get {
                 return ResourceManager.GetString("UI_AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bitte zuerst anmelden..
+        /// </summary>
+        public static string UI_User_PleaseLogin {
+            get {
+                return ResourceManager.GetString("UI_User_PleaseLogin", resourceCulture);
             }
         }
     }

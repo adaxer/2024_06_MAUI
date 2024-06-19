@@ -1,23 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <v:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:vm="clr-namespace:RooME.Maui.ViewModels"
-             xmlns:v="clr-namespace:RooME.Maui.Views"
-			 xmlns:m="clr-namespace:RooME.Models;assembly=RooME.Models"
-			 x:Class="RooME.Maui.Views.RoomListPage"
-			 x:DataType="vm:RoomListViewModel">
-	<RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
-		<CollectionView ItemsSource="{Binding Rooms}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
-			<CollectionView.ItemTemplate>
-				<DataTemplate x:DataType="m:Room">
-					<Frame Margin="4" Padding="12">
-						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RoomListViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
-						</Frame.GestureRecognizers>
-						<Label Text="{Binding Name}" FontSize="Large" TextColor="{StaticResource Primary}" />
-					</Frame>
-				</DataTemplate>
-			</CollectionView.ItemTemplate>
-		</CollectionView>
-	</RefreshView>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:RooME.Maui.ViewModels"
+    xmlns:v="clr-namespace:RooME.Maui.Views"
+    xmlns:loc="clr-namespace:RooME.Loc;assembly=RooME.Loc" 
+    xmlns:conv="clr-namespace:RooME.Maui.Converters"
+    xmlns:m="clr-namespace:RooME.Contracts;assembly=RooME.Contracts"
+    x:Class="RooME.Maui.Views.RoomListPage"
+    x:DataType="vm:RoomListViewModel">
+    <Grid>
+        <RefreshView IsVisible="{Binding IsLoggedIn}" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
+            <CollectionView ItemsSource="{Binding Rooms}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:Room">
+                        <Frame Margin="4" Padding="12">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RoomListViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <Label Text="{Binding Name}" FontSize="Large" TextColor="{StaticResource Primary}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        <VerticalStackLayout>
+            <VerticalStackLayout.IsVisible>
+                <Binding Path="IsLoggedIn">
+                    <Binding.Converter>
+                        <conv:InverseConverter />
+                    </Binding.Converter>
+                </Binding>
+            </VerticalStackLayout.IsVisible>
+            <Label Text="{x:Static loc:Strings.UI_User_PleaseLogin}"/>
+            <Button Text="{x:Static loc:Strings.Global_Login}" Command="{Binding GoToLoginCommand}"/>
+        </VerticalStackLayout>
+    </Grid>
 </v:BasePage>

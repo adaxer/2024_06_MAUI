@@ -6,16 +6,30 @@ public partial class RoomListViewModel : BaseViewModel
 {
     readonly IRoomService _dataService;
     private readonly INavigationService _navigationService;
+    private readonly IUserService _userService;
     [ObservableProperty]
     bool isRefreshing;
 
     [ObservableProperty]
     ObservableCollection<Room>? rooms;
 
-    public RoomListViewModel(IRoomService service, INavigationService navigationService)
+    [ObservableProperty]
+    private bool _isLoggedIn=false;
+
+    public RoomListViewModel(IRoomService service, INavigationService navigationService, IUserService userService)
     {
         _dataService = service;
         _navigationService = navigationService;
+        _userService = userService;
+    }
+
+    public override async void OnNavigatedTo(IDictionary<string, object> data)
+    {
+        IsLoggedIn = await _userService.GetIsLoggedInAsync();
+        if (IsLoggedIn)
+        {
+            await LoadDataAsync();
+        }
     }
 
     [RelayCommand]
@@ -57,7 +71,12 @@ public partial class RoomListViewModel : BaseViewModel
     [RelayCommand]
     private async Task GoToDetailsAsync(Room item)
     {
-        // Zielkonzept
         await _navigationService.NavigateAsync<RoomDetailsViewModel>(("Room", item));
+    }
+
+    [RelayCommand]
+    private async Task GoToLoginAsync()
+    {
+        await _navigationService.NavigateAsync<LoginViewModel>();
     }
 }

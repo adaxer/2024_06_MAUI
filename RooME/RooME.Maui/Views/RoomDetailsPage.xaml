@@ -9,6 +9,7 @@
 		<VerticalStackLayout Margin="12">
 			<Label Text="{Binding Room.Name}" FontSize="Header" />
 			<Label Text="{Binding Room.Description}" FontSize="Default" />
-		</VerticalStackLayout>
+            <Button Text="Book" Command="{Binding BookRoomCommand}" />
+        </VerticalStackLayout>
 	</ScrollView>
 </v:BasePage>

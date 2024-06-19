@@ -13,7 +13,7 @@ public partial class BaseViewModel : ObservableObject
     //    Title = $"Old: {oldValue}, new: {newValue}";
     //}
 
-    public virtual void OnNavigatedTo(IDictionary<string, object> data)
+    public virtual void OnNavigatedTo(IDictionary<string, object> data=default!)
     {
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace RooME.Maui.Views;
+﻿
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+
+namespace RooME.Maui.Views;
 
 public partial class MainPage : BasePage
 {

@@ -7,10 +7,9 @@ public partial class RoomListPage : BasePage
 		InitializeComponent();
 	}
 
-	protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+	protected override void OnNavigatedTo(NavigatedToEventArgs args)
 	{
 		base.OnNavigatedTo(args);
-
-		await (ViewModel as RoomListViewModel)!.LoadDataAsync();
+        ViewModel.OnNavigatedTo();
 	}
 }
