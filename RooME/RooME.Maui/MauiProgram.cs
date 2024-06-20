@@ -12,10 +12,6 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
-            //.UseMauiCommunityToolkit(options =>
-            //{
-            //    options.SetShouldEnableSnackbarOnWindows(true);
-            //})
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -38,8 +34,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<ILocalizationService>(sp => new ResXLocalizationService { CurrentCulture = new System.Globalization.CultureInfo("fr") });
         builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
         builder.Services.AddSingleton<IUserService, MauiUserService>();
-        builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://9cf3180h-7195.euw.devtunnels.ms", UriKind.Absolute) });
-        //builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7195", UriKind.Absolute) });
+       // builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://9cf3180h-7195.euw.devtunnels.ms", UriKind.Absolute) });
+        builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7195", UriKind.Absolute) });
         builder.Services.AddSingleton<IMessenger, WeakReferenceMessenger>();
         builder.Services.AddSingleton<IStatusService, MauiStatusService>();
 
